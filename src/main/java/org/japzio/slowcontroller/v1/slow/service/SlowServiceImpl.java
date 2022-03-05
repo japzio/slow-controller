@@ -10,12 +10,12 @@ public class SlowServiceImpl implements SlowService {
 
     public SlowResponse getMessage()  {
         try {
-            Thread.sleep(30000);
+            Thread.sleep(10000);
         } catch(InterruptedException e) {
             log.error(e.getMessage());
             e.printStackTrace();
         }
-        return new SlowResponse("this is a slow response api");
+        return new SlowResponse("this is a slow response api trying to reproduce 401");
     }
 
 }
