@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.UUID;
 
 @RequiredArgsConstructor
-public class SlowResponse implements Serializable {
+public class Response implements Serializable {
 
     private final String id = UUID.randomUUID().toString();
 

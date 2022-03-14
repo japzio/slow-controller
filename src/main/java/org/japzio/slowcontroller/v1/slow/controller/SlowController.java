@@ -1,6 +1,6 @@
 package org.japzio.slowcontroller.v1.slow.controller;
 
-import org.japzio.slowcontroller.v1.slow.domain.SlowResponse;
+import org.japzio.slowcontroller.v1.slow.domain.Response;
 import org.japzio.slowcontroller.v1.slow.service.SlowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,7 +17,12 @@ public class SlowController {
     }
 
     @GetMapping(value = "v1/slow", produces = MediaType.APPLICATION_JSON_VALUE)
-    public SlowResponse getSlowResponse() {
+    public Response getSlowResponse() {
+        return slowService.getMessageSlow();
+    }
+
+    @GetMapping(value = "v1/normal", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Response getNotSlowResponse() {
         return slowService.getMessage();
     }
 
