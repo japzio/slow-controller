@@ -19,7 +19,7 @@ public class SlowServiceImpl implements SlowService {
     }
 
     public Response getMessage()  {
-        return new Response("This is a normal response! github actions test develop branch");
+        return new Response("This is a normal response! test again");
     }
 
 }
