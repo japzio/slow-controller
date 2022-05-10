@@ -2,7 +2,7 @@ name: Deploy to Heroku
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build:
@@ -16,4 +16,8 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: ./mvnw install heroku:deploy
+        run: ./mvnw -B package --file pom.xml
+      - name: Deploy to Heroku
+        run: ./mvnw heroku:deploy
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
